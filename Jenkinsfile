@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        PATH = "/opt/maven3/bin:$PATH"
+        PATH = "C:\Program Files\apache-maven-3.8.4\bin"
     }
     stages{
         stage("Git Checkout"){
