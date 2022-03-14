@@ -1,16 +1,23 @@
 pipeline {
     agent any
-
-     stages{
-        stage('Git Checkout'){
-            steps{
-                git branch: 'main', url: 'https://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@github.com/tamilarasanaccet30/Jenkins_CICD.git'
+    tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
         }
-        stage('Maven Build'){
-            steps{
-                sh 'mvn clean package'
-             }
+
+        stage ('Build') {
+            steps {
+                echo 'This is a minimal pipeline.'
+            }
         }
     }
 }
